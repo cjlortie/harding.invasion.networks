@@ -1,0 +1,48 @@
+---
+title:
+author: "cjlortie"
+date: "August 2016"
+output:
+  html_document:
+    theme: yeti
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+##A set of code for research program on invasion.
+
+###Hypothesis
+Management history and invasive plant species restructure community structure and composition in coastal, terrace grasslands.
+
+![](./sampling.jpg)
+
+[cjlortie](http://christopherlortie.info)
+
+###Methods
+Two distinct sites - one UC Reserve and one preserve.
+Two transects per site for a total of 3 days sampling for invertebrates and vertebrates.
+Plant community structure and composition was assessed in one census.
+Each transect was 100m in length.  A set of 25 points were selected randomly.
+A total 8 animal cams were deployed per transect per day/night.
+A total of 6 pollinator cams were deployed per transect per day.
+A total of 25 0.5 x 0.5m quadrats were censues for plants.
+Phalaris aquatica is common in the UC Reserve.
+
+![](./pa.jpg)
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+#library loads ####
+library(dplyr)
+library(lme4)
+library(lattice)
+library(latticeExtra)
+
+```
+###EDA
+```{r, trends}
+
+
+```

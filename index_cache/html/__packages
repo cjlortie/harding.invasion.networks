@@ -1,0 +1,13 @@
+base
+methods
+datasets
+utils
+grDevices
+graphics
+stats
+dplyr
+Matrix
+lme4
+lattice
+RColorBrewer
+latticeExtra
