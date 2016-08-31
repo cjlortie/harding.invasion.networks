@@ -42,7 +42,38 @@ library(latticeExtra)
 
 ```
 ###EDA
-```{r, trends}
+```{r, animal trends}
 
+#data
+data <-read.csv("data/vertebrates.csv")
+str(data) #check dataframe
+data$rep.day <-as.factor(data$rep.day)
+str(data)
+
+#visualize
+hist(data$abundance, main="", xlab="abundance")
+bwplot(abundance~rep.day | site, data=data)
+
+hist(data$diversity, main="", xlab="diversity")
+bwplot(diversity~rep.day | site, data=data)
+
+library(ggplot2)
+qplot(rep.day, abundance, data=data, geom="boxplot", facets = site~.)
+qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
+
+#now explore by harding.cover
+bwplot(abundance~harding.cover | site, data=data)
+
+plot(abundance~harding.cover, data = data)
+abline(lm(abundance~harding.cover, data=data))
+#abline(lm(abundance~harding.cover, site=="RM", data=data))
+#abline(lm(abundance~harding.cover, site=="FR", data=data)) #no harding
+
+bwplot(diversity~harding.cover | site, data=data)
+
+plot(diversity~harding.cover, data = data)
+abline(lm(diversity~harding.cover, data=data))
+#abline(lm(diversity~harding.cover, site=="RM", data=data))
+#abline(lm(diversity~harding.cover, site=="FR", data=data)) #no harding
 
 ```
