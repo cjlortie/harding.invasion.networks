@@ -50,7 +50,7 @@ str(data) #check dataframe
 data$rep.day <-as.factor(data$rep.day)
 str(data)
 
-#visualize
+#visualize####
 hist(data$abundance, main="", xlab="abundance")
 bwplot(abundance~rep.day | site, data=data)
 
@@ -75,5 +75,18 @@ plot(diversity~harding.cover, data = data)
 abline(lm(diversity~harding.cover, data=data))
 #abline(lm(diversity~harding.cover, site=="RM", data=data))
 #abline(lm(diversity~harding.cover, site=="FR", data=data)) #no harding
+
+#EDA
+m1<-glm(abundance~harding.cover, family=gaussian, data=data)
+m1
+anova(m1)
+pv <- summary(m1)$coefficients[, "Pr(>|t|)"] 
+pv
+
+m2<-glm(diversity~harding.cover, family=gaussian, data=data)
+m2
+anova(m2)
+pv <- summary(m2)$coefficients[, "Pr(>|t|)"] 
+pv
 
 ```
