@@ -6,3 +6,5 @@ lattice
 RColorBrewer
 latticeExtra
 ggplot2
+estimability
+lsmeans
