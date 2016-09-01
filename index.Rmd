@@ -155,7 +155,7 @@ m3
 anova(m3, test="Chisq")
 
 
-#More advanced tests for vertebrate patterns
+#More advanced tests for invertebrate patterns
 #test covariates or importance of sampling method
 #sampling method
 m4<-glm(abundance~harding.cover*method, family="gaussian", data=data)
@@ -222,7 +222,7 @@ m4<-glm(native.density~harding.cover, family=gaussian, data=data)
 m4
 anova(m4, test="Chisq")
 
-#More advanced tests for vertebrate patterns
+#More advanced tests for plant patterns
 #test covariates or invasional meltdown
 #meltdown test for negative interactions
 qplot(harding.cover, exotic.plant.cover, data=data, geom="smooth", method="lm")
