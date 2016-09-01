@@ -77,8 +77,8 @@ qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
 #bwplot(diversity~harding.cover | site, data=data)
 
 #ggplots
-qplot(harding.cover, abundance, data=data, geom="smooth")
-qplot(harding.cover, diversity, data=data, geom="smooth")
+qplot(harding.cover, abundance, data=data, geom="smooth", method="lm")
+qplot(harding.cover, diversity, data=data, geom="smooth", method="lm")
 
 #EDA
 m1<-glm(abundance~harding.cover, family=gaussian, data=data)
