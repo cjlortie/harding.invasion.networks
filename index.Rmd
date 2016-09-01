@@ -35,21 +35,21 @@ Phalaris aquatica is common in the UC Reserve.
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
 #library loads ####
-library(dplyr)
-library(lme4)
-library(lattice)
-library(latticeExtra)
-library(ggplot2)
+#library(dplyr)
+#library(lme4)
+#library(lattice)
+#library(latticeExtra)
+#library(ggplot2)
 
 ```
-###EDA
-```{r, trends, message=FALSE}
+###EDA Practice code
+```{r, practice code, message=FALSE}
 
 #data
-data <-read.csv("data/vertebrates.csv")
-str(data) #check dataframe
-data$rep.day <-as.factor(data$rep.day) #r did not know day was a factor
-data$transect <-as.factor(data$transect) #r did not know day was a factor
+#data <-read.csv("data/vertebrates.csv")
+#str(data) #check dataframe
+#data$rep.day <-as.factor(data$rep.day) #r did not know day was a factor
+#data$transect <-as.factor(data$transect) #r did not know day was a factor
 #str(data)
 
 #visualize####
@@ -60,10 +60,10 @@ data$transect <-as.factor(data$transect) #r did not know day was a factor
 #bwplot(diversity~rep.day | site, data=data) #lattice package
 
 #ggplot2
-qplot(abundance, data=data)
-qplot(rep.day, abundance, data=data, geom="boxplot", facets = site~.)
-qplot(diversity, data=data)
-qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
+#qplot(abundance, data=data)
+#qplot(rep.day, abundance, data=data, geom="boxplot", facets = site~.)
+#qplot(diversity, data=data)
+#qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
 
 #now explore by harding.cover
 #base-r
@@ -77,9 +77,60 @@ qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
 #bwplot(diversity~harding.cover | site, data=data)
 
 #ggplots
+#qplot(harding.cover, abundance, data=data, geom="smooth", method="lm")
+#qplot(harding.cover, diversity, data=data, geom="smooth", method="lm")
+
+#EDA
+#m1<-glm(abundance~harding.cover, family=gaussian, data=data)
+#m1
+#anova(m1)
+#pv <- summary(m1)$coefficients[, "Pr(>|t|)"] 
+#pv
+
+#m2<-glm(diversity~harding.cover, family=gaussian, data=data)
+#m2
+#anova(m2)
+#pv <- summary(m2)$coefficients[, "Pr(>|t|)"] 
+#pv
+
+```
+
+### EDA Vertebrates
+```{r, vertebrates}
+#if you copy and paste into r-studio or r, getwd and setwd first
+#ensure your data file is in that wd or folder
+#getwd()
+#setwd()
+#install.packages('ggplot2')
+
+#load data
+data <-read.csv("data/vertebrates.csv")
+str(data) #check dataframe
+data$rep.day <-as.factor(data$rep.day) #r did not know day was a factor
+data$transect <-as.factor(data$transect) #r did not know transect was a factor
+
+#Visualize data
+library(ggplot2)
+#ggplot2
+#Cambria-level visualizations
+qplot(abundance, data=data)
+qplot(diversity, data=data)
+qplot(management, abundance, geom="boxplot", data=data)
+qplot(management, diversity, geom="boxplot", data=data)
+qplot(management, bare.cover, geom="boxplot", data=data)
+qplot(management, harding.cover, geom="boxplot", data=data)
+
+#Site & day level visualizations
+qplot(rep.day, abundance, data=data, geom="boxplot", facets = site~.)
+qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
+qplot(rep.day, harding.cover, data=data, geom="boxplot", facets = site~.)
+
+#effect of Harding Grass
 qplot(harding.cover, abundance, data=data, geom="smooth", method="lm")
 qplot(harding.cover, diversity, data=data, geom="smooth", method="lm")
+qplot(harding.cover, rate.hr, data=data, geom="smooth", method="lm")
 
+#basic stats for main effects
 #EDA
 m1<-glm(abundance~harding.cover, family=gaussian, data=data)
 m1
@@ -91,6 +142,12 @@ m2<-glm(diversity~harding.cover, family=gaussian, data=data)
 m2
 anova(m2)
 pv <- summary(m2)$coefficients[, "Pr(>|t|)"] 
+pv
+
+m3<-glm(rate.hr~harding.cover, family=gaussian, data=data)
+m3
+anova(m3)
+pv <- summary(m3)$coefficients[, "Pr(>|t|)"] 
 pv
 
 ```
