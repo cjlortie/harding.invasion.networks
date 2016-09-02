@@ -28,9 +28,13 @@ Each transect was 100m in length.  A set of 25 points were selected randomly.
 A total 8 animal cams were deployed per transect per day/night.
 A total of 6 pollinator cams were deployed per transect per day.
 A total of 25 0.5 x 0.5m quadrats were censues for plants.
-Phalaris aquatica is common in the UC Reserve.
+
+![](./sample.locations.png)
+
+Phalaris aquatica (Harding Grass) is common in the UC Reserve. Harding Grass was planted at the first site sampled within the UC Reserve, and the soil was also tilled at this site (transect 1). At the second UC site, there was almost no Harding Grass, and it was not planted at this site within the reserve (transect 2). There was no Harding Grass at either of the sites sampled with the Fiscalini Ranch Preserve.
 
 ![](./pa.jpg)
+
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(cache=TRUE)
