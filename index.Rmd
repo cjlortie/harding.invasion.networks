@@ -121,6 +121,7 @@ data <-read.csv("data/invertebrates.csv")
 str(data) #check dataframe
 data$rep.day <-as.factor(data$rep.day) #r did not know day was a factor
 data$transect <-as.factor(data$transect) #r did not know transect was a factor
+#data$methods have 5 levels, treated all as independent rep equiv to 'fine' level
 
 #Visualize data
 library(ggplot2)
