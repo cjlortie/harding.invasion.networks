@@ -56,7 +56,7 @@ knitr::opts_chunk$set(cache=TRUE)
 #install.packages('ggplot2')
 
 #load data
-data <-read.csv("data/vertebrates.csv")
+data <-read.csv("data/vertebrates.csv") #note also tested vertebrates.fine.csv
 str(data) #check dataframe
 data$rep.day <-as.factor(data$rep.day) #r did not know day was a factor
 data$transect <-as.factor(data$transect) #r did not know transect was a factor
