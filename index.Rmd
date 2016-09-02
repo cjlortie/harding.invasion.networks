@@ -170,7 +170,7 @@ anova(m4, test="Chisq")
 #install.package("lsmeans")
 library(lsmeans)
 lsmeans(m4, pairwise~method, adjust="tukey")
-qplot(method, abundance, geom="boxplot", data=data)
+qplot(method, abundance, geom="boxplot", data=data) #does not have ground now
 
 ```
 
