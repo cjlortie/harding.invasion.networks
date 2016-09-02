@@ -125,7 +125,7 @@ data$transect <-as.factor(data$transect) #r did not know transect was a factor
 #Visualize data
 library(ggplot2)
 #ggplot2
-#Cambria-level visualizations
+#Cambria-level visualization
 qplot(abundance, data=data)
 qplot(diversity, data=data)
 qplot(management, abundance, geom="boxplot", data=data)
@@ -133,7 +133,7 @@ qplot(management, diversity, geom="boxplot", data=data)
 qplot(management, bare.cover, geom="boxplot", data=data)
 qplot(management, harding.cover, geom="boxplot", data=data)
 
-#Site & day level visualizations
+#Site & day level visualization
 qplot(rep.day, abundance, data=data, geom="boxplot", facets = site~.)
 qplot(rep.day, diversity, data=data, geom="boxplot", facets = site~.)
 qplot(rep.day, rate.hr, data=data, geom="boxplot", facets = site~.)
